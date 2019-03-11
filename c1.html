@@ -1,0 +1,43 @@
+<script>
+
+  var num = +prompt ("Введіть цифрове значення вiд 1 до 999");
+
+  if (!(num >= 1 && num <= 999)) { throw "Не гiдне значення"; }
+
+  const units = [
+    "грiвень", "одна грiвна","двi грiвни","три грiвни","чотири грiвни",
+    "п'ять грiвень","шicть грiвень","сiм грiвень","восiм грiвень","дев'ять грiвень"
+  ];
+
+  const nadtsyat = [
+    "","одiнадцять","дванадцять","тринадцять","чотирнадцять","п'ятнадцять",
+    "шiстнадцять","сiмнадцять","восiмнадцять","дев'ятнадцять"
+  ];
+
+  const tens = [
+    "", "дicять", "двадцять", "тридцять", "сорок", "п'ятдесят",
+    "шicтдесят", "сiмдесят", "восiмдесят", "дев'яносто"
+  ];
+
+  const hundreds = [
+    "", "сто","двiсти","триста","чотиреста","п'ять сотен","шicть сотен",
+    "сiм cотен", "вiсiмсот", "дев'ятсот"
+  ];
+
+  if (num > 10 && num < 20) {
+      var res = nadtsyat[num-10] + " грiвень";
+  }
+  else {
+    var num2str = num.toString();
+    var num2str_arr = num.split("");
+
+    var hundreds_str = num2str_arr.length == 3 ? hundreds[num2str_arr[num2str_arr.length-3]] : "";
+    var tens_str = num2str_arr.length >= 2 ? tens[num2str_arr[num2str_arr.length-2]] : "";
+    var units_str = units[num2str_arr[num2str_arr.length-1]];
+
+    var res = hundreds_str + " " + tens_str + " " + units_str;
+  }
+
+  console.log (res);
+
+</script>
