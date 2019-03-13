@@ -1,6 +1,6 @@
 <script>
 
-  var num = +prompt ("Введіть цифрове значення вiд 1 до 999");
+  var num = parseInt(prompt ("Введіть цифрове значення вiд 1 до 999"));
 
   if (!(num >= 1 && num <= 999)) { throw "Не гiдне значення"; }
 
@@ -29,13 +29,14 @@
   }
   else {
     var num2str = num.toString();
-    var num2str_arr = num.split("");
+    var num2str_arr = num2str.split("");
 
     var hundreds_str = num2str_arr.length == 3 ? hundreds[num2str_arr[num2str_arr.length-3]] : "";
     var tens_str = num2str_arr.length >= 2 ? tens[num2str_arr[num2str_arr.length-2]] : "";
     var units_str = units[num2str_arr[num2str_arr.length-1]];
 
     var res = hundreds_str + " " + tens_str + " " + units_str;
+    res = res.replace("  ", " ");
   }
 
   console.log (res);
