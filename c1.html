@@ -36,7 +36,7 @@
   }
   else
   {
-    var tens_str = tens[num2str_arr[num2str_arr.length-2]];
+    var tens_str = num2str_arr.length >= 2 ? tens[num2str_arr[num2str_arr.length-2]] : "";
     var units_str = units[num2str_arr[num2str_arr.length-1]];
     var res = hundreds_str + " " + tens_str + " " + units_str;
   }
