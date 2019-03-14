@@ -27,9 +27,6 @@
   var num2str = num.toString();
   var num2str_arr = num2str.split("");
 
-  // DEBUG:
-  console.log(num2str_arr);
-
   var hundreds_str = num2str_arr.length == 3 ? hundreds[num2str_arr[num2str_arr.length-3]] : "";
 
   if (num2str_arr[num2str_arr.length - 2] == "1")
