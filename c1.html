@@ -10,7 +10,7 @@
   ];
 
   const nadtsyat = [
-    "","одiнадцять","дванадцять","тринадцять","чотирнадцять","п'ятнадцять",
+    "дicять","одiнадцять","дванадцять","тринадцять","чотирнадцять","п'ятнадцять",
     "шiстнадцять","сiмнадцять","восiмнадцять","дев'ятнадцять"
   ];
 
@@ -24,20 +24,27 @@
     "сiм cотен", "вiсiмсот", "дев'ятсот"
   ];
 
-  if (num > 10 && num < 20) {
-      var res = nadtsyat[num-10] + " грiвень";
-  }
-  else {
-    var num2str = num.toString();
-    var num2str_arr = num2str.split("");
+  var num2str = num.toString();
+  var num2str_arr = num2str.split("");
 
-    var hundreds_str = num2str_arr.length == 3 ? hundreds[num2str_arr[num2str_arr.length-3]] : "";
-    var tens_str = num2str_arr.length >= 2 ? tens[num2str_arr[num2str_arr.length-2]] : "";
+  // DEBUG:
+  console.log(num2str_arr);
+
+  var hundreds_str = num2str_arr.length == 3 ? hundreds[num2str_arr[num2str_arr.length-3]] : "";
+
+  if (num2str_arr[num2str_arr.length - 2] == "1")
+  {
+    var tsyat_str = nadtsyat[num2str_arr[num2str_arr.length-1]]
+    var res = hundreds_str + " " + tsyat_str + " грiвень";
+  }
+  else
+  {
+    var tens_str = tens[num2str_arr[num2str_arr.length-2]];
     var units_str = units[num2str_arr[num2str_arr.length-1]];
-
     var res = hundreds_str + " " + tens_str + " " + units_str;
-    res = res.replace("  ", " ");
   }
+
+  res = res.replace("  ", " ");
 
   console.log (res);
 
